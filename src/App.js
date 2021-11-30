@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState }   from 'react' ;
+import Item from './components/Item';
+import { Button } from 'primereact/button';
+
+
 
 function App() {
+
+  const[ dataTable, setData] = useState([
+    {id:Date.now(), firstName:'John', secondName : 'Connor', lastName:'Arc', country: 'USA', state:'blabla', email:'y@g.com',phone:'335'}
+    
+  ]);
+
+  const[firstName, setFirstName] = useState('')
+  const[secondName, setSecondName] = useState('')
+  const[lastName, setLastName] = useState('')
+  const[country, setCountry] = useState('')
+  const[state, setState] = useState('')
+  const[email, seteEmail] = useState('')
+  const[phone, setPhone] = useState('')
+
+  const removeElement = () => {
+
+    setData([...dataTable, -addNewUser]);
+  }
+
+  const addNewUser = () =>{
+    const newUser ={
+      id: Date.now() ,
+      firstName ,
+      secondName ,
+      lastName,
+      country,
+      state,
+      email,
+      phone
+    }
+    
+    setData([...dataTable, newUser]); 
+  }
+
+
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {dataTable.map( data =>  
+      <Item data = {data} key = {data.id} />
+      )}
+      
+      <Button onClick = {addNewUser}> Add new User</Button>
+      <Button onClick = {removeElement}> delete</Button>
+      
     </div>
   );
 }
