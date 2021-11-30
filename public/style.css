@@ -1,0 +1,8 @@
+.label-box{
+display: flex;
+justify-content: center;
+}
+p{
+    min-width: 170px;
+
+}
