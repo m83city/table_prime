@@ -1,10 +1,13 @@
 *{
-    margin: 0;
+    margin: 2px 0px;
     padding: 0;
     box-sizing: border-box;
 }
 .item-box{
     display: flex;
     list-style-type: none;
-    flex-direction: row;
+}
+.mainbox{
+    display: flex;
+    justify-content: center;
 }

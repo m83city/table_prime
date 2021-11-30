@@ -4,7 +4,7 @@ import App from './App';
 import Item from '../src/components/Item';
 
 ReactDOM.render(
-   <Item/>,
+   <App/>,
   document.getElementById('root')
 );
 
